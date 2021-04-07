@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilbert7miao.github.io</id>
     <title>Blueblue</title>
-    <updated>2021-03-15T12:42:20.373Z</updated>
+    <updated>2021-04-07T00:02:57.930Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilbert7miao.github.io"/>
     <link rel="self" href="https://gilbert7miao.github.io/atom.xml"/>
@@ -10,20 +10,6 @@
     <logo>https://gilbert7miao.github.io/images/avatar.png</logo>
     <icon>https://gilbert7miao.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Blueblue</rights>
-    <entry>
-        <title type="html"><![CDATA[《百万富翁快车道》读书笔记]]></title>
-        <id>https://gilbert7miao.github.io/post/lesslessbai-wan-fu-weng-kuai-che-dao-greatergreater-du-shu-bi-ji/</id>
-        <link href="https://gilbert7miao.github.io/post/lesslessbai-wan-fu-weng-kuai-che-dao-greatergreater-du-shu-bi-ji/">
-        </link>
-        <updated>2021-03-15T11:43:13.000Z</updated>
-        <summary type="html"><![CDATA[<p>轮椅装不进兰博基尼的后备箱</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>轮椅装不进兰博基尼的后备箱</p>
-<!-- more -->
-<hr>
-<h2 id="你走在什么道路上">你走在什么道路上</h2>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[浙江美大-估值与分析总结]]></title>
         <id>https://gilbert7miao.github.io/post/zhe-jiang-mei-da-gu-zhi-yu-fen-xi-zong-jie/</id>
