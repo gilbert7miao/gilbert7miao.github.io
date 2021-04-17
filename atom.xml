@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilbert7miao.github.io</id>
     <title>Blueblue</title>
-    <updated>2021-04-07T00:02:57.930Z</updated>
+    <updated>2021-04-17T02:57:34.547Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilbert7miao.github.io"/>
     <link rel="self" href="https://gilbert7miao.github.io/atom.xml"/>
@@ -10,6 +10,43 @@
     <logo>https://gilbert7miao.github.io/images/avatar.png</logo>
     <icon>https://gilbert7miao.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Blueblue</rights>
+    <entry>
+        <title type="html"><![CDATA[复盘-血泪教训，甲方数据库被我删了]]></title>
+        <id>https://gilbert7miao.github.io/post/fu-pan-xie-lei-jiao-xun-jia-fang-shu-ju-ku-bei-wo-shan-liao/</id>
+        <link href="https://gilbert7miao.github.io/post/fu-pan-xie-lei-jiao-xun-jia-fang-shu-ju-ku-bei-wo-shan-liao/">
+        </link>
+        <updated>2021-04-13T02:49:12.000Z</updated>
+        <summary type="html"><![CDATA[<p>作为项目经理，接手了一个已经验收后的项目，负责后期三年的运维。<br>
+然而，第一次维护我就差一点破坏了甲方的数据库......</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>作为项目经理，接手了一个已经验收后的项目，负责后期三年的运维。<br>
+然而，第一次维护我就差一点破坏了甲方的数据库......</p>
+<!-- more -->
+<hr>
+<p><strong>背景</strong></p>
+<p>甲方做了新服务器，需要做数据库和系统的迁移。</p>
+<p>我是在此项目验收时从离职的同事那里接手的，对接工作时没有对接甲方服务器环境相关内容，导致对于甲方服务器相关情况不够了解。</p>
+<p>接到数据迁移任务时，原负责此系统的后台开发X即将离职，将此事交接给了新来的后台W。</p>
+<hr>
+<p>我出于体谅即将离职同事和锻炼新人的角度考虑，没有让即将离职的X跟我一起出差，而是让W来的。<br>
+这是我在人员安排上的一个失误，应该一切以工作为首要，就让对于这项工作最熟悉的人X来负责。</p>
+<p>由于我们是新手项目经理+新手后台，同时对于此系统不了解，以至于基本的软件部署原则都不很清楚，<br>
+下面总结的这几条也是血泪教训了。</p>
+<p>原则一，数据库是头等重要的大事，只要有可能动到数据库，那就一定要做好备份。</p>
+<p>原则二，停掉数据库服务再迁移数据，只要数据库服务没有停止，那么一定会有新数据加入的。<br>
+这样会造成数据丢失和数据库配置错误，无法启动。</p>
+<p>原则三，不懂一定要刨根问底，不懂的工具不要乱用。<br>
+甲方运维人员提供了一个名叫goodsync2go的文件同步工具，本意是提高文件拷贝的速度，但没有强调危险性，我们在没有充分了解其原理和使用方法的情况下使用了该工具，直接导致了原数据库被删除。</p>
+<p>软实力上的启示，工作上不要轻易依赖一个人，尤其是应该由自己负责的工作。<br>
+就算最后的执行由下属来做，作为项目经理也应该了解事件的流程和把控点，在关键问题上要把握方向。</p>
+<p>作为项目经理，在开始一项工作之前，优先要做的是讨论确定做事的方案，包括流程、关键点、任务分配、进度安排等，在一定的高度上进行把控，一定不要陷入工作细节中。</p>
+<p>在与甲方的沟通中，凡是遇到自己不清楚的问题，一定要引起重视，找开发人员刨根问底搞清楚后给甲方一个明确的答复，切忌给出模棱两可的回复，危机往往就潜伏在每一次的敷衍中。</p>
+<hr>
+<p><strong>结局</strong></p>
+<p>联系公司，派X过来，恢复了数据库，完成了系统的迁移。</p>
+<p>有惊无险，X功德无量。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[浙江美大-估值与分析总结]]></title>
         <id>https://gilbert7miao.github.io/post/zhe-jiang-mei-da-gu-zhi-yu-fen-xi-zong-jie/</id>

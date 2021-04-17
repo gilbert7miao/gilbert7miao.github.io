@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>复盘-血泪教训，甲方数据库被我删了 | Blueblue</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://gilbert7miao.github.io/favicon.ico?v=1618628250751">
+<link rel="stylesheet" href="https://gilbert7miao.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="作为项目经理，接手了一个已经验收后的项目，负责后期三年的运维。
+然而，第一次维护我就差一点破坏了甲方的数据库......
+
+
+背景
+甲方做了新服务器，需要做数据库和系统的迁移。
+我是在此项目验收时从离职的同事那里接手的，对接工作时没有对接甲..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://gilbert7miao.github.io">
+        <img src="https://gilbert7miao.github.io/images/avatar.png?v=1618628250751" class="site-logo">
+        <h1 class="site-title">Blueblue</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      乐于柴米油盐，不舍风与自由
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://gilbert7miao.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">复盘-血泪教训，甲方数据库被我删了</h2>
+            <div class="post-date">2021-04-13</div>
+            
+              <div class="feature-container" style="background-image: url('https://gilbert7miao.github.io/post-images/fu-pan-xie-lei-jiao-xun-jia-fang-shu-ju-ku-bei-wo-shan-liao.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>作为项目经理，接手了一个已经验收后的项目，负责后期三年的运维。<br>
+然而，第一次维护我就差一点破坏了甲方的数据库......</p>
+<!-- more -->
+<hr>
+<p><strong>背景</strong></p>
+<p>甲方做了新服务器，需要做数据库和系统的迁移。</p>
+<p>我是在此项目验收时从离职的同事那里接手的，对接工作时没有对接甲方服务器环境相关内容，导致对于甲方服务器相关情况不够了解。</p>
+<p>接到数据迁移任务时，原负责此系统的后台开发X即将离职，将此事交接给了新来的后台W。</p>
+<hr>
+<p>我出于体谅即将离职同事和锻炼新人的角度考虑，没有让即将离职的X跟我一起出差，而是让W来的。<br>
+这是我在人员安排上的一个失误，应该一切以工作为首要，就让对于这项工作最熟悉的人X来负责。</p>
+<p>由于我们是新手项目经理+新手后台，同时对于此系统不了解，以至于基本的软件部署原则都不很清楚，<br>
+下面总结的这几条也是血泪教训了。</p>
+<p>原则一，数据库是头等重要的大事，只要有可能动到数据库，那就一定要做好备份。</p>
+<p>原则二，停掉数据库服务再迁移数据，只要数据库服务没有停止，那么一定会有新数据加入的。<br>
+这样会造成数据丢失和数据库配置错误，无法启动。</p>
+<p>原则三，不懂一定要刨根问底，不懂的工具不要乱用。<br>
+甲方运维人员提供了一个名叫goodsync2go的文件同步工具，本意是提高文件拷贝的速度，但没有强调危险性，我们在没有充分了解其原理和使用方法的情况下使用了该工具，直接导致了原数据库被删除。</p>
+<p>软实力上的启示，工作上不要轻易依赖一个人，尤其是应该由自己负责的工作。<br>
+就算最后的执行由下属来做，作为项目经理也应该了解事件的流程和把控点，在关键问题上要把握方向。</p>
+<p>作为项目经理，在开始一项工作之前，优先要做的是讨论确定做事的方案，包括流程、关键点、任务分配、进度安排等，在一定的高度上进行把控，一定不要陷入工作细节中。</p>
+<p>在与甲方的沟通中，凡是遇到自己不清楚的问题，一定要引起重视，找开发人员刨根问底搞清楚后给甲方一个明确的答复，切忌给出模棱两可的回复，危机往往就潜伏在每一次的敷衍中。</p>
+<hr>
+<p><strong>结局</strong></p>
+<p>联系公司，派X过来，恢复了数据库，完成了系统的迁移。</p>
+<p>有惊无险，X功德无量。</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://gilbert7miao.github.io/post/zhe-jiang-mei-da-gu-zhi-yu-fen-xi-zong-jie/">
+                  <h3 class="post-title">
+                    浙江美大-估值与分析总结
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '0efe33f9d698298d44f8',
+        clientSecret: '74ab6da2d275f801b2f5ded4f2c5b5bac69b8f01',
+        repo: 'gilbert7miao.github.io',
+        owner: 'gilbert7miao',
+        admin: ['gilbert7miao'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
